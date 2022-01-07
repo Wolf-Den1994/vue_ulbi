@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <form>
+    <form @submit.prevent="createPost">
       <h4>Создание постав</h4>
       <input
         :value="title"
@@ -18,7 +18,6 @@
       >
       <button
         class="btn"
-        @click="createPost"
       >Создать</button>
     </form>
     <div class="post" v-for="post in posts">
