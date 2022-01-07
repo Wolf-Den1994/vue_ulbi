@@ -24,8 +24,6 @@
 </template>
 
 <script>
-import MyButton from "@/components/UI/MyButton";
-
 export default {
   data() {
     return {
@@ -45,9 +43,6 @@ export default {
       }
     }
   },
-  components: {
-    MyButton,
-  }
 }
 </script>
 

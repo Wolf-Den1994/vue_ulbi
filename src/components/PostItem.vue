@@ -11,8 +11,6 @@
 </template>
 
 <script>
-import MyButton from "@/components/UI/MyButton";
-
 export default {
   props: {
     post: {
@@ -20,9 +18,6 @@ export default {
       required: true,
     }
   },
-  components: {
-    MyButton,
-  }
 }
 </script>
 
