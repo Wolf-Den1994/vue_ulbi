@@ -1,6 +1,7 @@
 <template>
   <div class="app">
     <h1>Страница с постами</h1>
+    <input type="text" v-model.trim="modifierValue">
     <my-button
       @click="showDialog"
       style="margin: 15px 0"
@@ -30,6 +31,7 @@ export default {
         { id: 3, title: 'JavaScript 3', body: 'Описание поста 3' },
       ],
       dialogVisible: false,
+      modifierValue: '',
     }
   },
   methods: {
