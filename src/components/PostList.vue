@@ -1,5 +1,6 @@
 <template>
-  <div>
+<!--  v-show="posts.length"  -->
+  <div v-if="posts.length">
     <h3>Список пользователей</h3>
     <post-item
       v-for="post in posts"
@@ -8,6 +9,13 @@
       @remove="$emit('remove', post)"
     />
   </div>
+  <!--  v-show="!posts.length"  -->
+  <h2
+    style="color: red"
+    v-else
+  >
+    Список постов пуст
+  </h2>
 </template>
 
 <script>
