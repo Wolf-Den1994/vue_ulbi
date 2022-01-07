@@ -1,7 +1,10 @@
 <template>
   <div class="app">
     <post-form @create="createPost" />
-    <post-list :posts="posts"/>
+    <post-list
+      :posts="posts"
+      @remove="removePost"
+    />
   </div>
 </template>
 
@@ -15,7 +18,7 @@ export default {
       posts: [
         { id: 1, title: 'JavaScript 1', body: 'Описание поста 1' },
         { id: 2, title: 'JavaScript 2', body: 'Описание поста 2' },
-        { id: 2, title: 'JavaScript 3', body: 'Описание поста 3' },
+        { id: 3, title: 'JavaScript 3', body: 'Описание поста 3' },
       ],
     }
   },
@@ -23,6 +26,9 @@ export default {
     createPost(post) {
       this.posts.push(post);
     },
+    removePost(post) {
+      this.posts = this.posts.filter(p => p.id !== post.id);
+    }
   },
   components: {
     PostList,
