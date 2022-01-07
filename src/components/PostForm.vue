@@ -3,6 +3,7 @@
     @submit.prevent="createPost"
   >
     <h4>Создание постав</h4>
+<!--    v-model:value="post.title"-->
     <my-input
       v-model="post.title"
       type="text"
