@@ -25,28 +25,19 @@
       v-if="!isPostsLoading"
     />
     <div v-else>Идет загрузка...</div>
-    <div class="page__wrapper">
-      <div
-        v-for="pageNumber in totalPages"
-        :key="pageNumber"
-        class="page"
-        :class="{
-          'current-page': page === pageNumber
-        }"
-        :style="{
-          color: page === pageNumber ? 'teal' : ''
-        }"
-        @click="changePage(pageNumber)"
-      >
-        {{ pageNumber }}
-      </div>
-    </div>
+    <pagination
+      :page="page"
+      :total-pages="totalPages"
+      @changePage="changePage"
+      v-if="totalPages"
+    />
   </div>
 </template>
 
 <script>
 import PostForm from "@/components/PostForm";
 import PostList from "@/components/PostList";
+import Pagination from "@/components/Pagination";
 import axios from 'axios';
 
 export default {
@@ -124,6 +115,7 @@ export default {
   components: {
     PostList,
     PostForm,
+    Pagination,
   }
 }
 </script>
@@ -143,19 +135,5 @@ export default {
   margin: 15px 0;
   display: flex;
   justify-content: space-between;
-}
-
-.page {
-  border: 1px solid #000;
-  padding: 10px;
-}
-
-.page__wrapper {
-  display: flex;
-  margin-top: 15px;
-}
-
-.current-page {
-  border: 2px solid teal;
 }
 </style>
